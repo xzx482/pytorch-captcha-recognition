@@ -7,10 +7,12 @@ import my_dataset
 from captcha_cnn_model import CNN
 import one_hot_encoding
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 def main():
     cnn = CNN()
     cnn.eval()
-    cnn.load_state_dict(torch.load('model.pkl'))
+    cnn.load_state_dict(torch.load('model.pkl',map_location=device))
     print("load cnn net.")
 
     test_dataloader = my_dataset.get_test_data_loader()
