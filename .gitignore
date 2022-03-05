@@ -101,3 +101,6 @@ ENV/
 .mypy_cache/
 model.pkl
 getVerCode.jfif
+
+
+dataset
