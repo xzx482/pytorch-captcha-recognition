@@ -21,8 +21,6 @@ class mydataset(Dataset):
         image = Image.open(image_root)
         if self.transform is not None:
             image = self.transform(image)
-        if image.size!=(captcha_setting.IMAGE_WIDTH, captcha_setting.IMAGE_HEIGHT):
-            print(image_name+'!!!')
         label = ohe.encode(image_name.split('_')[0]) # 为了方便，在生成图片的时候，图片文件的命名格式 "4个数字或者数字_时间戳.PNG", 4个字母或者即是图片的验证码的值，字母大写,同时对该值做 one-hot 处理
         return image, label
 
